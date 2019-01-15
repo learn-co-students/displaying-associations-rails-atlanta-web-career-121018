@@ -1,3 +1,14 @@
 <h1><%= @category.name %></h1>
 
 <!-- Add code here to list a category's posts. -->
+
+<h3><%= pluralize(@category.posts.count, 'Post')%></h3>
+<ul>
+  <% @category.posts.each do |p| %>
+    <li>
+      <%= link_to p.title, post_path(p) %>
+    </li>
+    <% end %>
+</ul>
+
+<!-- The object returned by an association method (posts) is a CollectionProxy and responds to most of the methods you can use on an array -->

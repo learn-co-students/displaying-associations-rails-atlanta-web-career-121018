@@ -2,4 +2,8 @@
 
 <!-- Add code here to link to the post's category. -->
 
+<h3>Category: <%= link_to @post.category.name, category_path(@post.category) if @post.category %></h3>
+<!-- @post.category = model, can use it anywhere we would use @category in a view for that object -->
+<!-- if conditional ensures the view doesn't try to call @post.category.name if the post has n ot been associated with a category -->
+
 <p><%= @post.description %></p>
